@@ -1,0 +1,9 @@
+{
+  "name": "webgl-project",
+  "version": "0.1.0",
+  "dependencies": {
+    "requirejs" : "latest",
+    "three.js" : "latest",
+    "gsap" : "latest"
+  }
+}
