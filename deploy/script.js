@@ -3158,7 +3158,7 @@ f!==d.currentFrame&&(this.morphTargetInfluences[d.lastFrame]=0,this.morphTargetI
                 if (pConfig === void 0) { pConfig = ThreeEngine.DEFAULT_ENGINE_CONFIG; }
                 // Check if our system support WebGL rendering
                 if (this.isWebglAvailable()) {
-                    // Instanciate the WebGL renderer
+                    // Instantiate the WebGL renderer
                     this._renderer = new THREE.WebGLRenderer({
                         antialias: pConfig.antialias
                     });
