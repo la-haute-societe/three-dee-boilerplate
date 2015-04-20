@@ -1,0 +1,16 @@
+{
+  "name": "webgl-project",
+  "version": "0.1.0",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "requirejs": "latest",
+    "grunt-contrib-clean": "latest",
+    "grunt-contrib-concat": "~0.4.0",
+    "grunt-contrib-requirejs": "latest",
+    "grunt-contrib-uglify": "~0.4.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-typescript": "latest",
+    "grunt-clean-ts-extends": "latest"
+  },
+  "dependencies": {}
+}
