@@ -2,6 +2,9 @@ export = ThreeEngine;
 
 module ThreeEngine
 {
+	/**
+	 * Interface for the engine config
+	 */
 	export interface IEngineConfig
 	{
 		antialias				?:boolean;
@@ -14,6 +17,9 @@ module ThreeEngine
 		cameraFar				?:number;
 	}
 
+	/**
+	 * The default engine config
+	 */
 	export var DEFAULT_ENGINE_CONFIG:IEngineConfig = {
 		antialias		: true,
 		backgroundColor	: 0xFFFFFF,
@@ -25,19 +31,53 @@ module ThreeEngine
 		cameraFar		: 10000
 	};
 
+
+	/**
+	 * Detect WebGL capability
+	 */
+	export function isWebglAvailable ()
+	{
+		try
+		{
+			var canvas = document.createElement("canvas");
+			return !!(
+			window["WebGLRenderingContext"] &&
+			(canvas.getContext("webgl") ||
+			canvas.getContext("experimental-webgl"))
+			);
+		}
+		catch (e)
+		{
+			return false;
+		}
+	}
+
+	/**
+	 * 3D Scene base to extend
+	 */
 	export class SceneBase
 	{
+		/**
+		 * The Three.js renderer
+		 */
 		private _renderer				:THREE.Renderer;
 		get renderer ():THREE.Renderer { return this._renderer; }
 
-
+		/**
+		 * The default scene's camera
+		 */
 		private _camera					:THREE.PerspectiveCamera;
 		get camera ():THREE.PerspectiveCamera { return this._camera; }
 
-
+		/**
+		 * The Three.js scene object (the root node)
+		 */
 		private _scene					:THREE.Scene;
 		get scene ():THREE.Scene { return this._scene; }
 
+		/**
+		 * The size of the rendered scene in 2D [widthn, heigh†]
+		 */
 		private _renderSize				:number[];
 		get renderSize ():number[] { return this._renderSize; }
 
@@ -49,7 +89,7 @@ module ThreeEngine
 		initEngine (pConfig:IEngineConfig = DEFAULT_ENGINE_CONFIG):boolean
 		{
 			// Check if our system support WebGL rendering
-			if (this.isWebglAvailable())
+			if (ThreeEngine.isWebglAvailable())
 			{
 				// Instantiate the WebGL renderer
 				this._renderer = new THREE.WebGLRenderer({
@@ -59,6 +99,8 @@ module ThreeEngine
 				// Set the background color
 				(<THREE.WebGLRenderer> this._renderer).setClearColor(pConfig.backgroundColor, pConfig.backgroundAlpha);
 			}
+
+			// No webGL availableà
 			else return false;
 
 			// Define pixel ratio
@@ -129,25 +171,5 @@ module ThreeEngine
 			// Update renderer
 			this._renderer.setSize(this._renderSize[0], this._renderSize[1]);
 		};
-
-		/**
-		 * Detect WebGL capability
-		 */
-		private isWebglAvailable ()
-		{
-			try
-			{
-				var canvas = document.createElement("canvas");
-				return !!(
-					window["WebGLRenderingContext"] &&
-					(canvas.getContext("webgl") ||
-					canvas.getContext("experimental-webgl"))
-				);
-			}
-			catch (e)
-			{
-				return false;
-			}
-		}
 	}
 }
