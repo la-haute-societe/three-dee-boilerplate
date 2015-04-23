@@ -1,5 +1,7 @@
 # 3D Boilerplate
 
+The source code just shows a cube spinning in a web-browser.
+This repo is meant to be used to start small 3D projects with strong workflow / architecture.
 
 ### Node
 
@@ -47,12 +49,12 @@ tsd query greensock --action install
 ```
 
 We use [three.js](http://threejs.org/) framework to abstract our 3D scenes and display them with WebGL.
-(waa and mediastream are webgl sub-dependencies)
+(waa and mediastream are webgl sub-dependencies).
 We also use the tween engine [gsap](http://greensock.com/gsap) from greensock for animations.
 
 ### Bower
 
-We use bower to install our dependencies. They are installed in the lib/ folder.
+We use [bower](http://bower.io/) to install our dependencies. They are installed in the lib/ folder.
 To install bower dependencies, call this in the build/ folder :
 
 ```
@@ -81,4 +83,4 @@ grunt dist
 ```
 
 
-Have fun :)
+### Have fun :)
