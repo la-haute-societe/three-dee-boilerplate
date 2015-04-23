@@ -1,12 +1,11 @@
 # 3D Boilerplate
 
 
-
-## Node
+### Node
 
 You need [Node.js](https://nodejs.org/) environment to use this project.
 
-## Grunt
+### Grunt
 
 We use the grunt task runner to compile our sources and clean the workflow.
 After node is installed on your computer, you can install grunt as a globally available package with :
@@ -16,7 +15,7 @@ npm install -g grunt
 npm install -g grunt-cli
 ```
 
-## Grunt dependencies
+### Grunt dependencies
 
 To install grunt dependencies, call this in the build/ folder :
 
@@ -24,7 +23,7 @@ To install grunt dependencies, call this in the build/ folder :
 npm install
 ```
 
-## Typescript
+### Typescript
 
 The source code is in Typescript. This will provide us strong auto-completion in most IDE, and a lot of static error checking.
 Javascript libraries have typescript definitions available to get auto-completion and error checking.
@@ -36,7 +35,7 @@ npm install -g typescript
 npm install -g tsd
 ```
 
-## Typescript definitions
+### Typescript definitions
 
 To install used typescript definitions, call this in the build/ folder :
 
@@ -51,7 +50,7 @@ We use [three.js](http://threejs.org/) framework to abstract our 3D scenes and d
 (waa and mediastream are webgl sub-dependencies)
 We also use the tween engine [gsap](http://greensock.com/gsap) from greensock for animations.
 
-## Bower
+### Bower
 
 We use bower to install our dependencies. They are installed in the lib/ folder.
 To install bower dependencies, call this in the build/ folder :
@@ -60,7 +59,7 @@ To install bower dependencies, call this in the build/ folder :
 bower install
 ```
 
-## Run the project
+### Run the project
 
 To run the project, use this command in the build/ folder :
 
@@ -68,14 +67,14 @@ To run the project, use this command in the build/ folder :
 grunt
 ```
 
-This command will compile typescript sources + concat them in one file. When done this will launch a webserver (from the deploy/ folder) and watch changed files to rerun the compiling and reload the browser if needed.
-If you need just compiling :
+This command will compile typescript sources + concat them in one file. When done this will launch a web-server (from the deploy/ folder) and watch changed files to re-run the compiling and reload the browser if needed.
+If you just need compiling :
 
 ```
 grunt dev
 ```
 
-Or if you need production compiling (with sourcers obfuscation) :
+Or if you need production compiling (with sources obfuscation) :
 
 ```
 grunt dist
