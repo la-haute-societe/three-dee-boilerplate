@@ -45,6 +45,7 @@ var config = {
 module.exports = function (grunt)
 {
     // Load grunt plugins
+    grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -53,8 +54,22 @@ module.exports = function (grunt)
     grunt.loadNpmTasks('grunt-clean-ts-extends');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
 
+
     // Project and plugins configuration
     grunt.initConfig({
+
+    	// --------------------------------------------------------------------- SERVER
+    	
+    	connect: {
+    		server: {
+    			options: {
+    				useAvailablePort: true,
+    				base: '../deploy/',
+    				livereload: true,
+    				open: true
+    			}
+    		}
+    	},
 
         // --------------------------------------------------------------------- UTILS
 
@@ -161,7 +176,7 @@ module.exports = function (grunt)
             // Watch changes on this file
             grunt: {
                 files: ['Gruntfile.js'],
-                tasks: ['dev']
+                tasks: ['default']
             }
         }
     });
@@ -178,5 +193,5 @@ module.exports = function (grunt)
     grunt.registerTask('dist', ['dev', 'uglify:js']);
 
     // Run "dev" and watch on default
-    grunt.registerTask('default', ['dev', 'watch']);
+    grunt.registerTask('default', ['dev', 'connect:server', 'watch']);
 };
