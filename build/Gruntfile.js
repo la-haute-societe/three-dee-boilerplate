@@ -88,7 +88,7 @@ module.exports = function (grunt)
                 options: {
                     module: 'amd',
                     target: 'es5',
-                    basePath: '../',
+                    rootDir: '../',
 
                     sourceMap: false,
                     declaration: false,
