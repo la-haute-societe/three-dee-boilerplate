@@ -1,36 +1,31 @@
-export = App;
-
 /**
  * Import our specific scene
  */
-import MyScene = require("src/scene/MyScene");
+import {MyScene} from 'src/scene/MyScene';
 
-module App
+/**
+ * Main class
+ */
+export class Main
 {
 	/**
-	 * Main class
+	 * Our scene
 	 */
-	export class Main
+	private _myScene				:MyScene;
+
+	/**
+	 * App constructor
+	 */
+	constructor ()
 	{
-		/**
-		 * Our scene
-		 */
-		private _myScene				:MyScene;
+		this.initScene();
+	}
 
-		/**
-		 * App constructor
-		 */
-		constructor ()
-		{
-			this.initScene();
-		}
-
-		/**
-		 * Init our specific scene
-		 */
-		private initScene ()
-		{
-			this._myScene = new MyScene();
-		}
+	/**
+	 * Init our specific scene
+	 */
+	private initScene ()
+	{
+		this._myScene = new MyScene();
 	}
 }

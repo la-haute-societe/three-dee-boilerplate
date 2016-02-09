@@ -1,14 +1,12 @@
-export = MyScene;
-
 /**
  * Load the ThreeEngine helper to create our first scene
  */
-import ThreeEngine = require("../three/ThreeEngine");
+import {SceneBase} from '../three/ThreeEngine';
 
 /**
  * Our scene extends the default scene from the helper
  */
-class MyScene extends ThreeEngine.SceneBase
+export class MyScene extends SceneBase
 {
 	/**
 	 * The light
@@ -57,7 +55,6 @@ class MyScene extends ThreeEngine.SceneBase
 		// Create the material for our cube
 		var cubeMaterial = new THREE.MeshPhongMaterial({
 			color		: 0xDEDEDE,
-			ambient		: 0x555555,
 			shininess	: 100
 		});
 
